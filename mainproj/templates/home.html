@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship | 2022</title>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .cont{
+            position: absolute;
+            left: 650px;
+            top: 150px;
+            width: 350px;
+        }
+      
+
+        .container {
+        width: 70%;
+        padding: 5px;
+        transition: transform 250ms;
+        position: absolute;
+        left: 480px;
+        top: -30px;
+        width: 450px;
+        height: 500px;
+        border-radius: 20px;
+        padding: 40px;
+        box-sizing: border-box;
+        background: #ecf0f3;
+        box-shadow: 4px 10px 20px rgba(0, 0, 0, .4);
+        overflow:scroll;
+        }
+
+        .container2{
+        width: 70%;
+        padding: 5px;
+        transition: transform 250ms;
+        position: absolute;
+        left: 70px;
+        top: 120px;
+        width: 450px;
+        height: 500px;
+        border-radius: 20px;
+        padding: 40px;
+        box-sizing: border-box;
+        background: #ecf0f3;
+        box-shadow: 4px 10px 20px rgba(0, 0, 0, .4);
+        overflow:scroll;
+        }
+
+        .c2{
+        width: 70%;
+        padding: 5px;
+        transition: transform 250ms;
+        position: absolute;
+        top: 430px;
+        left: -30px;
+        width: 400px;
+        height: 350px;
+        padding: 40px;        
+        overflow:scroll;
+        }
+
+        body{
+            margin: 25px;
+            font-family:sans-serif;
+            background-color: #f1f1f1;
+            position: relative;
+            padding-bottom: 60px;
+            min-height: 93vh;
+        }
+
+       
+
+        .container:hover{
+            transform: scale(1.009);
+        }
+
+        .container2:hover{
+            transform: scale(1.009);
+        }
+
+        .inputs {
+        text-align: left;
+        margin-top: 30px;
+        }
+
+        label, input, button {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+        }
+
+        label {
+        margin-bottom: 10px;
+        }
+
+        label:nth-of-type(2) {
+        margin-top: 12px;
+        }
+
+        input::placeholder {
+        color: gray;
+        }
+
+        input {
+        background: #ecf0f3;
+        padding: 10px;
+        padding-left: 20px;
+        height: 50px;
+        font-size: 14px;
+        border-radius: 50px;
+        box-shadow: inset 2px 2px 2px #cbced1, inset -2px -2px 2px white;
+        }
+
+        button {
+        color: white;
+        margin-top: 20px;
+        background: #1DA1F2;
+        height: 40px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 900;
+        box-shadow: 6px 6px 6px #cbced1, -2px -2px 2px white;
+        transition: 0.5s;
+        min-width: 50px;
+        }
+
+        .btn {
+        color: white;
+        margin-top: 20px;
+        background: #1DA1F2;
+        height: 40px;
+        
+        border-radius: 20px;
+        width: 70%;
+        cursor: pointer;
+        font-weight: 900;
+        box-shadow: 6px 6px 6px #cbced1, -2px -2px 2px white;
+        transition: 0.5s;
+        }
+
+        .b2{
+            position: absolute;
+            min-width: 380px;
+            left: 90px;
+            top: 110px;
+        }
+        button:hover {
+        box-shadow: none;
+        }
+
+        .clear{
+            position: absolute;
+            top: 500px;
+            left: 638px;
+            width: 200px;
+        }
+        
+        th{
+            padding: 10px;
+        }
+
+        td{
+            text-align: center;
+            align-content: center;
+        }
+
+     
+        .title {
+        margin-top: 5px;
+        font-weight: 900;
+        font-size: 1.3rem;
+        color: #1DA1F2;
+        letter-spacing: 1px;
+        position: absolute;
+        top: -12px;
+        left: 630px;
+        height: 75px;
+        width: 380px;
+        padding: 20px;
+        }
+
+        .logo {
+        height: 40px;
+        width: 120px;
+        position: absolute;
+        top: 12px;
+        left: 240px;
+        margin: auto;
+        padding: 5px;
+        }
+
+        .c3{
+        width: 70%;
+        padding: 5px;
+        transition: transform 250ms;
+        position: absolute;
+        left: 70px;
+        top: 720px;
+        width: 450px;
+        height: 300px;
+        border-radius: 20px;
+        padding: 40px;
+        overflow:scroll;
+        }
+
+        .c3 button{
+            width: 200px;
+            margin: auto;
+        }
+</style>
+</head>
+<body>
+    <div class="title">Summer Internship <img src="https://www.betsol.com/wp-content/uploads/2017/02/BETSOL_Logo-Registered.png" alt="" class="logo"></div>
+    
+    <div class="container2">
+        <h2>Commands</h2><br>
+
+        <div class="b2">
+       <a href="/ls"> <button class="btn">ls</button></a>
+       <a href="/pwd"> <button class="btn">pwd</button></a>
+       <a href="/echo"> <button class="btn">echo</button></a>
+       <a href="/df"> <button class="btn">df</button></a>
+       <br> <h5>cmd: ls, sleep_dur: 10, repetition: 1000</h5>
+       <a href="/cel"> <button class="btn" style="background-color: black;">Using celery</button></a>
+        </div>
+    </div>
+    <div class="c3">
+        <h2>Execute Latest command</h2><br> <br>
+            <a href="/test_fun"> <button>Execute</button></a> <br>
+            <a href="/cel_fun"> <button style="background-color: black;">Using celery</button></a>
+    </div>
+    <div class="cont">
+    <h2>Execute the commands</h2><br>
+        <div class="row">
+            <div class="inputs">
+                <div >
+                    <label for="cmdid">&nbsp;cmd &nbsp;</label>
+                    <input type="text" id="cmdid" placeholder="Command">
+                </div>
+                <div >
+                    <label for="rpt">repetition &nbsp;</label>
+                    <input type="number" id="rpt" placeholder="Repetition">
+                </div>
+                <div >
+                    <label for="slp">sleep_dur&nbsp;</label>
+                    <input type="number" id="slp" placeholder="sleep duration">
+                </div>
+                
+                <br>
+                <button id="btnSubmit" type="submit" class="btn1">Submit</button>
+            </div>
+        </div>    
+        
+
+    <div class="container">
+        <h1>Output</h1>
+        <br>
+        {{abc}}    
+    </div>
+
+    <div class="clear">
+        <a href="http://127.0.0.1:8000/"> <button class="btn">Clear</button></a>
+    </div>
+
+    
+     
+    <br> <br>
+    <div class="c2">
+    <h2>Commands List</h2><br>
+            <table class="table table-hover">
+                <tr>
+                    <th>command</th>
+                    <th>repetition</th>
+                    <th>sleep</th>
+                    <th>Action</th>
+                </tr>
+                <tbody id="divBody"></tbody>
+            </table>
+    </div>
+</div>
+<script>
+
+    function test_event(){
+        $.ajax({
+            url:"http://127.0.0.1:8000/test",
+            headers:{
+                    'X-CSRFToken':csrftoken
+                }
+        })
+    }
+
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+
+    $(document).ready(function () {
+            viewCommand();
+        });
+
+        $('#btnSubmit').click(function () {
+
+
+            let command = $('#cmdid').val();
+            let repetition = $('#rpt').val();
+            let sleep = $('#slp').val();
+
+
+
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                headers:{
+                    'X-CSRFToken':csrftoken
+                },
+                data: {
+                    "cmd": command,
+                    "repetition": repetition,
+                    "sleep_dur": sleep
+                },
+
+                url: "http://127.0.0.1:8000/api/commands",
+                error: function (xhr, status, error) {
+
+                    var err_msg = ''
+                    for (var prop in xhr.responseJSON) {
+                        err_msg += prop + ': ' + xhr.responseJSON[prop] + '\n';
+                    }
+
+                    alert(err_msg);
+                },
+                success: function (result) {
+                 
+                    viewCommand();
+                    alert('Data Saved Successfully.');
+
+                    $('#cmdid').val("");
+                    $('#rpt').val("");
+                    $('#slp').val("");
+                }
+            });
+        });
+
+        function viewCommand() {
+            $.ajax({
+                type: 'GET',
+                dataType: 'json',
+                url: "http://127.0.0.1:8000/api/commands", success: function (result) {
+                   
+                    var totalCount = result.length;
+                    var structureDiv = "";
+                    for (let i = 0; i < totalCount; i++) {
+                        structureDiv += "<tr>" +
+                            "      <td>" + result[i].cmd + "</td>" +
+                            "             <td>" + result[i].repetition + "</td>" +
+                            "              <td>" + result[i].sleep_dur + "</td>" +
+                            "              <td><button onclick='return confirm(\"Delete Command?\",DeleteRow(" + result[i].id + "))'>Delete</button></td>" +
+                            "           </tr>";
+                    }
+
+                    $("#divBody").html(structureDiv);
+              
+                }
+            });
+
+        }
+
+        function DeleteRow(id) {
+            
+            $.ajax({
+                type: 'DELETE',
+                dataType: 'json',
+                headers:{
+                    'X-CSRFToken':csrftoken
+                },
+                url: "http://127.0.0.1:8000/api/commands/"+id,
+                error: function (xhr, status, error) {
+
+                    var err_msg = ''
+                    for (var prop in xhr.responseJSON) {
+                        err_msg += prop + ': ' + xhr.responseJSON[prop] + '\n';
+                    }
+
+                    alert(err_msg);
+                },
+                success: function (result) {
+              
+                    viewCommand();
+                }
+            });
+        }
+
+       
+
+</script>
+</body>
+</html>
