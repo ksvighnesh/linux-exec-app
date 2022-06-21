@@ -1,5 +1,5 @@
 from urllib import response
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 import subprocess,os
 from .models import command
@@ -9,12 +9,25 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.response import Response
 from .tasks import sleepy
-from .tasks import executeCommand
+from .tasks import sleeps
 import requests
 
 
 def index(request):
     return render(request,'main.html')
+
+def new_feat(request):
+    cmd=""
+    n=0
+    sleep_dur=0
+    response=requests.get('http://127.0.0.1:8000/api/commands').json()
+    for i in response:
+        cmd=i['cmd']
+        n=i['repetition']
+        sleep_dur=i['sleep_dur']
+    task=sleeps.delay(cmd,n,sleep_dur)
+    #return HttpResponse(task)
+    return render(request,'dup.html',{'task_id': task.task_id})
 
 def test_fun(request):
     cmd=""
@@ -40,17 +53,13 @@ def cel_fun(request):
     abc=cel_exec(cmd,n,sleep_dur)
     return render(request,'home.html',{'abc':abc})
 
+#Predefined commands
 def ls(request):
     sleepy.delay(10)
     cmd="ls"
     n=100
     sleep_dur=0
     abc=command1(cmd,n,sleep_dur)
-    return render(request,'home.html',{'abc':abc})
-
-
-def cel(request):
-    abc=executeCommand.delay()
     return render(request,'home.html',{'abc':abc})
 
 
@@ -80,14 +89,6 @@ def df(request):
 
 #return HttpResponse("""<html><script>window.location.replace('/');</script></html>""")
 
-"""
-# Create your views here.
-def mnfun(request):
-    sleepy.delay(10)
-    cmd="pwd"
-    n=100
-    abc=command1(cmd,n)
-    return render(request,'home.html',{'abc':abc}) """
 
 def command1(cmd,n,sleep_dur):
     i=0
@@ -109,12 +110,7 @@ def cel_exec(cmd,n,sleep_dur):
         i+=1
     return d
 
-
-
-
-# Create your views here.
-#def main(request):
- #   return render(request,'main.html')
+#api Methods
 
 @api_view(['GET','POST'])
 def main(request):

@@ -1,3 +1,5 @@
+{% load static  %}
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -246,7 +248,7 @@
             <a href="/pwd"> <button class="btn">pwd</button></a>
             <a href="/echo"> <button class="btn">echo</button></a>
             <a href="/df"> <button class="btn">df</button></a>
-            <a href="/new_f"> <button class="btn" style="background-color: black;">Using celery Track Progress</button></a>
+            <a href="/new_f"> <button class="btn" style="background-color: black;">Using celery</button></a>
         </div>
     </div>
 
@@ -280,9 +282,15 @@
         
 
     <div class="container">
-        <h1>Output</h1>
+        <h1>Output</h1><br>
+        <h2>Celery task initiated</h2><br>
+        <div class='progress-wrapper'>
+            <div id='progress-bar' class='progress-bar' style="background-color: #68a9ef; width: 0%;">&nbsp;</div>
+          </div>
+          <br>
+          <div id="progress-bar-message">Waiting for progress to start...</div>
+    
         <br>
-        {{abc}}        
     </div>
 
     <div class="clear">
@@ -306,6 +314,14 @@
             </table>
     </div>
 </div>
+<script src="{% static 'celery_progress/celery_progress.js' %}"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  var progressUrl = "{% url 'celery_progress:task_status' task_id %}";
+  CeleryProgressBar.initProgressBar(progressUrl);
+  });
+</script>
 <script>
 
     function test_event(){

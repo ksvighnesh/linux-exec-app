@@ -7,10 +7,10 @@ urlpatterns = [
     path('pwd',views.pwd,name='pwd'),
     path('echo',views.echo,name='echo'),
     path('df',views.df,name='df'),
-    path('cel',views.cel,name='cel'),
     path('test_fun',views.test_fun,name='t'),
     path('cel_fun',views.cel_fun,name='c'),
 #    path('mnfun',views.mnfun,name='mnfun'),
     path('api/commands',views.main,name='main'),
     path('api/commands/<int:id>',views.command_detail,name='command_detail'),
+    path('new_f',views.new_feat,name="new_f"),
 ]
