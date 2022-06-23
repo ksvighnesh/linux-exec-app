@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer Internship | 2022</title>
+
+    <style>
+        body{
+            background-color: wheat;
+        }
+        .btn {
+        color: white;
+        margin-top: 20px;
+        background: #1DA1F2;
+        height: 40px;
+        border: none;
+        border-radius: 20px;
+        width: 70%;
+        cursor: pointer;
+        font-weight: 900;
+        transition: 0.5s;
+        }
+
+        .container {
+        width: 70%;
+        padding: 5px;
+        transition: transform 250ms;
+        position: absolute;
+        height: 500px;
+        border-radius: 20px;
+        padding: 40px;
+        box-sizing: border-box;
+        background: white;
+        box-shadow: 4px 10px 20px rgba(0, 0, 0, .4);
+        overflow:scroll;
+        position: absolute;
+        top: 150px;
+        left: 370px;
+        width: 950px;
+
+        }
+
+        .new_f{
+            width: 800px;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            left: 445px;
+            top: 800px;
+        }
+        .new_f button{
+            width: 200px;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container2">
+        <div class="container">
+            <h1 >Output</h1>
+            <br>
+            <h3 id="out">{{text}}</h3>
+        </div>
+
+        <div class="new_f">
+            <a href="/channel" id="channel"> <button class="btn" style="background-color: black;">Execute Using channels</button></a>
+            <a href="/cleared_channel"><button class="btn">Clear</button></a>
+            <a href="/task3"><button class="btn">Back</button></a>
+            </div>
+    </div>
+
+    <script>       
+        let url = `ws://${window.location.host}/ws/socket-server/`
+        const commandSocket = new WebSocket(url) 
+        commandSocket.onmessage = function(e){
+            let data = JSON.parse(e.data)
+            console.log(data)
+            document.querySelector('#out').innerText=data.output;
+        }
+
+    </script>
+</body>
+</html>

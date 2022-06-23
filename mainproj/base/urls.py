@@ -11,5 +11,6 @@ urlpatterns = [
     path('api/commands/<int:id>',views.command_detail,name='command_detail'),
     path('new_f',views.new_feat,name="new_f"),
     path('commands',views.commandList.as_view,name="commands"),
-
+    path('channel',views.channel,name='channel'),
+    path('cleared_channel',views.cleared_channel,name='cleared_channel'),
 ]

@@ -25,6 +25,10 @@ class commandList(ListView):
 def index(request):
     return render(request,'main.html')
 
+def channel(request):
+    return render(request,'channel.html')
+
+
 def new_feat(request):
     #task 2
     #celery progress bar
@@ -64,7 +68,7 @@ def cel_fun(request):
     abc=cel_exec(cmd,n,sleep_dur)
     return render(request,'home.html',{'abc':abc})
 
-#Predefined commands
+
 
 #return HttpResponse("""<html><script>window.location.replace('/');</script></html>""")
 
@@ -86,6 +90,7 @@ def cel_exec(cmd,n,sleep_dur):
     return d
 
 def task3(request):
+    """ return render(request,'task3.html',context={'text':'hello'})"""
     #model forms
     form=commandForm()
     if request.method =='POST':
@@ -137,3 +142,6 @@ def command_detail(request,id):
     if request.method=='DELETE':
         commands.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+def cleared_channel(request):
+    return render(request,'channel_2.html')
