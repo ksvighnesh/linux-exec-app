@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Internship | 2022</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <style>
         
@@ -228,32 +227,20 @@
             <a href="/cel_fun"> <button style="background-color: black;">Using celery</button></a> <br>
     </div>
     <div class="cont">
-    <h2>Execute the commands</h2><br>
-        <div class="row">
-            <div class="inputs">
-                <div >
-                    <label for="cmdid">&nbsp;cmd &nbsp;</label>
-                    <input type="text" id="cmdid" placeholder="Command">
-                </div>
-                <div >
-                    <label for="rpt">repetition &nbsp;</label>
-                    <input type="number" id="rpt" placeholder="Repetition">
-                </div>
-                <div >
-                    <label for="slp">sleep_dur&nbsp;</label>
-                    <input type="number" id="slp" placeholder="sleep duration">
-                </div>
-                
-                <br>
-                <button id="btnSubmit" type="submit" class="btn1">Submit</button>
-            </div>
-        </div>
-        
+    <h2>Using model forms</h2><br> <br>
+
+        <form action="/task3" method="post">
+            {% csrf_token%}
+            {{form}}
+            <br>
+            <button type="submit" class="btn1">Submit</button>
+        </form>
+
 
     <div class="container">
         <h1>Output</h1>
         <br>
-        {{abc}}        
+        {{abc}}    
     </div>
 
     <div class="clear">
@@ -261,12 +248,10 @@
     </div>
 
     
-
-    <br> <br>
+     
     <div class="c2">
-    <h2>Commands List</h2>
-    <br>
-            <table>
+    <h2>Commands List</h2><br>
+            <table class="table table-hover">
                 <tr>
                     <th>command</th>
                     <th>repetition</th>
@@ -275,18 +260,32 @@
                 </tr>
                 <tbody id="divBody"></tbody>
             </table>
+
+            
     </div>
+    
 </div>
 
 <div class="new_f">
-    <a href="/new_f"> <button class="btn" style="background-color: black;">Using celery Track Progress</button></a><br> <br>
-    <a href="/task3"> <button class="btn">Task 3</button></a> 
+    <a href="/new_f"> <button class="btn" style="background-color: black;">Using celery Track Progress</button></a> <br> <br> 
+    <a href="/task3"> <button class="btn">Task 3</button></a>
 
 </div>
+    
 
+    <div class="sec-2">
+        <div class="container">
+            <h1>Output</h1>
+            <br>
+            {{abc}}    
+        </div>
+
+        <div class="new_f">
+        <a href="/new_f"> <button class="btn" style="background-color: black;">Using celery Track Progress</button></a>
+        </div>
+    </div>
+    
 <script>
-
-
     function getCookie(name) {
         var cookieValue = null;
         if (document.cookie && document.cookie !== '') {

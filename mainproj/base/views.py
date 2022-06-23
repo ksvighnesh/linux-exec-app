@@ -10,13 +10,24 @@ from rest_framework import status
 from rest_framework.response import Response
 from .tasks import sleepy
 from .tasks import sleeps
+from time import sleep
 import requests
+
+from django.views.generic.list import ListView
+from .forms import commandForm
+from django.utils import timezone
+
+class commandList(ListView):
+    model:command
+
 
 
 def index(request):
     return render(request,'main.html')
 
 def new_feat(request):
+    #task 2
+    #celery progress bar
     cmd=""
     n=0
     sleep_dur=0
@@ -27,9 +38,9 @@ def new_feat(request):
         sleep_dur=i['sleep_dur']
     task=sleeps.delay(cmd,n,sleep_dur)
     #return HttpResponse(task)
-    return render(request,'dup.html',{'task_id': task.task_id})
+    return render(request,'track.html',{'task_id': task.task_id})
 
-def test_fun(request):
+def normal_fun(request):
     cmd=""
     n=0
     sleep_dur=0
@@ -38,7 +49,7 @@ def test_fun(request):
         cmd=i['cmd']
         n=i['repetition']
         sleep_dur=i['sleep_dur']
-    abc=command1(cmd,n,sleep_dur)
+    abc=normal_exec(cmd,n,sleep_dur)
     return render(request,'home.html',{'abc':abc})
 
 def cel_fun(request):
@@ -54,61 +65,36 @@ def cel_fun(request):
     return render(request,'home.html',{'abc':abc})
 
 #Predefined commands
-def ls(request):
-    sleepy.delay(10)
-    cmd="ls"
-    n=100
-    sleep_dur=0
-    abc=command1(cmd,n,sleep_dur)
-    return render(request,'home.html',{'abc':abc})
-
-
-def pwd(request):
-    vr=sleepy.delay(5)
-    cmd="pwd"
-    n=1000    
-    sleep_dur=0
-    abc=command1(cmd,n,sleep_dur)
-    return render(request,'home.html',{'abc':abc})
-
-def echo(request):
-    sleepy.delay(5)
-    cmd="echo hello"
-    n=1000    
-    sleep_dur=0
-    abc=command1(cmd,n,sleep_dur)
-    return render(request,'home.html',{'abc':abc})
-
-def df(request):
-    sleepy.delay(55)
-    cmd="df"
-    n=100
-    sleep_dur=0
-    abc=command1(cmd,n,sleep_dur)
-    return render(request,'home.html',{'abc':abc})
 
 #return HttpResponse("""<html><script>window.location.replace('/');</script></html>""")
 
 
-def command1(cmd,n,sleep_dur):
-    i=0
+def normal_exec(cmd,n,sleep_dur):
     d=""
-    while i<n:
-        abc=os.popen(cmd)
-        sleepy(sleep_dur)
-        d+="\n"+abc.read()
-        i+=1
+    for i in range(n):
+        sleep(sleep_dur)
+        output=os.popen(cmd)
+        d+="\n"+output.read()
     return d
 
 def cel_exec(cmd,n,sleep_dur):
-    i=0
     d=""
-    while i<n:
-        abc=os.popen(cmd)
+    for i in range(n):
         sleepy.delay(sleep_dur)
-        d+="\n"+abc.read()
-        i+=1
+        output=os.popen(cmd)
+        d+="\n"+output.read()
     return d
+
+def task3(request):
+    #model forms
+    form=commandForm()
+    if request.method =='POST':
+        form=commandForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context={'form':form}
+    return render(request,'task3.html',context)
+
 
 #api Methods
 

@@ -8,7 +8,7 @@
     <title>Internship | 2022</title>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
-    <style>
+     <style>
         
         * {
             margin: 0;
@@ -19,18 +19,17 @@
 
         .cont{
             position: absolute;
-            left: 650px;
-            top: 150px;
+            left: 120px;
+            top: 200px;
             width: 350px;
         }
-      
 
         .container {
         width: 70%;
         padding: 5px;
         transition: transform 250ms;
         position: absolute;
-        left: 480px;
+        left: 1010px;
         top: -30px;
         width: 450px;
         height: 500px;
@@ -42,38 +41,22 @@
         overflow:scroll;
         }
 
-        .container2{
-        width: 70%;
-        padding: 5px;
-        transition: transform 250ms;
-        position: absolute;
-        left: 70px;
-        top: 120px;
-        width: 450px;
-        height: 500px;
-        border-radius: 20px;
-        padding: 40px;
-        box-sizing: border-box;
-        background: #ecf0f3;
-        box-shadow: 4px 10px 20px rgba(0, 0, 0, .4);
-        overflow:scroll;
-        }
+        
 
         .c2{
         width: 70%;
         padding: 5px;
         transition: transform 250ms;
         position: absolute;
-        top: 430px;
-        left: -30px;
+        top: -45px;
+        left: 480px;
         width: 400px;
-        height: 350px;
+        height: 500px;
         padding: 40px;        
         overflow:scroll;
         }
 
         body{
-            margin: 25px;
             font-family:sans-serif;
             background-color: #f1f1f1;
             position: relative;
@@ -81,13 +64,7 @@
             min-height: 93vh;
         }
 
-       
-
         .container:hover{
-            transform: scale(1.009);
-        }
-
-        .container2:hover{
             transform: scale(1.009);
         }
 
@@ -154,12 +131,6 @@
         transition: 0.5s;
         }
 
-        .b2{
-            position: absolute;
-            min-width: 380px;
-            left: 90px;
-            top: 110px;
-        }
         button:hover {
         box-shadow: none;
         }
@@ -167,7 +138,7 @@
         .clear{
             position: absolute;
             top: 500px;
-            left: 638px;
+            left: 1160px;
             width: 200px;
         }
         
@@ -182,7 +153,7 @@
 
      
         .title {
-        margin-top: 5px;
+        margin-top: 50px;
         font-weight: 900;
         font-size: 1.3rem;
         color: #1DA1F2;
@@ -210,10 +181,9 @@
         padding: 5px;
         transition: transform 250ms;
         position: absolute;
-        left: 70px;
-        top: 720px;
+        left: 92px;
+        top: 700px;
         width: 450px;
-        height: 300px;
         border-radius: 20px;
         padding: 40px;
         overflow:scroll;
@@ -221,29 +191,43 @@
 
         .c3 button{
             width: 200px;
+        }
+
+        .new_f{
+            position: absolute;
+            left: 720px;
+            top: 800px;
+        }
+        .new_f button{
+            width: 240px;
             margin: auto;
+        }
+
+        .sec-2{
+            position: absolute;
+            background-color: wheat;
+            width: 100vw;
+            height: 60vw;
+            top: 60vw;
+        }
+
+        .sec-2 .container{
+            position: absolute;
+            top: 150px;
+            left: 370px;
+            width: 950px;
         }
 </style>
 </head>
 <body>
     <div class="title">Summer Internship <img src="https://www.betsol.com/wp-content/uploads/2017/02/BETSOL_Logo-Registered.png" alt="" class="logo"></div>
     
-    <div class="container2">
-        <h2>Commands</h2><br>
-
-        <div class="b2">
-       <a href="/ls"> <button class="btn">ls</button></a>
-       <a href="/pwd"> <button class="btn">pwd</button></a>
-       <a href="/echo"> <button class="btn">echo</button></a>
-       <a href="/df"> <button class="btn">df</button></a>
-       <a href="/new_f"> <button class="btn" style="background-color: black;">Using celery</button></a>
-        </div>
-    </div>
+   
     <div class="c3">
-        <h2>Execute Latest command</h2><br> <br>
-            <a href="/test_fun"> <button>Execute</button></a> <br>
-            <a href="/cel_fun"> <button style="background-color: black;">Using celery Track Progress</button></a>
+            <a href="/normal_fun"> <button>Execute</button></a> <br>
+            <a href="/cel_fun"> <button style="background-color: black;">Using celery</button></a> <br>
     </div>
+
     <div class="cont">
     <h2>Execute the commands</h2><br>
         <div class="row">
@@ -293,6 +277,13 @@
             </table>
     </div>
 </div>
+
+<div class="new_f">
+    <a href="/new_f"> <button class="btn" style="background-color: black;">Using celery Track Progress</button></a> <br> <br> 
+    <a href="/task3"> <button class="btn">Task 3</button></a>
+
+</div>
+
 <script>
 
     function test_event(){
